@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+
+
+
+  .logo {
+    width: 3.5em;
+    height: 4em;
+    padding-left: 1em;
+    padding-top: 1em;
+    position: absolute;
+    
+  }
+
+  main {
+    padding: 1.5em;
+    height: 80vh;
+    color: #aaaaaa;
+    text-align: center;
+    padding-top: 15vh;
+    background-image: linear-gradient(to right, #103ce7, #52c4d8);
+
+
+  
+  
+  }
+
+  .searchbar{
+    height: 2em;
+    width: 15em;
+    border: 0px;
+    padding-left: .5em;
+    box-shadow: 0 10px 20px #00000033;
+
+   }
+
+
+   .btn{
+    margin-top: 1em;
+    padding: .5em 2em .5em 2em;
+    background-color: #8aaee0;
+    border-radius: 100px;
+    border: 1px solid #d5deef;
+    color: #1b2a41;
+    box-shadow: 0 10px 20px #00000033;
+
+   }
+  h2{
+    padding-bottom: 1em;
+    color: #fafcff ;
+}
+
+
+/****** container *******/
+
+.container{
+    background-color: #e2e2e2;
+    padding-top: 5em;
+    padding-bottom: 15em;
+    text-align: center;
+    }
+
+.countries{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    transition: opacity 1s;
+
+
+}
+
+.country {
+    background-color:#fafcff;
+    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem;
+    width: 40vw;
+    text-align: center;
+    border-radius: 0.7rem;
+    margin: 0 3rem;
+     overflow: hidden; 
+  }
+   
+.country__img {
+    width: 30rem;
+    height: 17rem;
+    object-fit: cover;
+    background-color: #eee;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+  }
+  
+  .country__data {
+    padding: 3em;
+  }
+  
+  .country__name {
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .country__region {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+
+/* * 
+
+  
+
+  .country {
+    background-color:#638ecb;
+    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem;
+    width: 30vw;
+    text-align: center;
+    border-radius: 0.7rem;
+    margin: 0 3rem;
+    /* overflow: hidden; 
+  }
+
+  
+.country__img {
+    width: 30rem;
+    height: 17rem;
+    object-fit: cover;
+    background-color: #eee;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+  }
+  
+  .country__data {
+    padding: 2.5rem 3.75rem 3rem 3.75rem;
+  }
+  
+  .country__name {
+    font-size: 2.7rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .country__region {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    color: #888;
+  }
+   */
