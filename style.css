@@ -1,3 +1,8 @@
+@font-face {
+  font-family: myFont;
+  src: url(/Adventure.otf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +26,12 @@
     height: 80vh;
     text-align: center;
     padding-top: 15vh;
-    background-color: rgb(251, 255, 0);
-    /* background-image: linear-gradient(to right, #fff16a, #e4b723); */
-    font-family: 'Comic Neue', cursive;
+    /* background-color: #CBBF7A; */
+    background-image: linear-gradient(to right, #818f58, #bdd17fa8),url(/country-image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: myFont;
+    font-size: 15px;
   }
 
   .searchbar{
@@ -32,23 +40,26 @@
     border: 0px;
     padding-left: .5em;
     box-shadow: 0 10px 20px #00000033;
+    font-family: myFont;
+
 
    }
 
 
-   .btn{
+   .btn-search{
     margin-top: 1em;
     padding: .5em 2em .5em 2em;
-    background-color: #8aaee0;
+    background-color: #719663;
     border-radius: 100px;
-    border: 1px solid #d5deef;
-    color: #1b2a41;
+    border: 0;
+    color: #e9e7e7;
     box-shadow: 0 10px 20px #00000033;
+    font-family: myFont;
+
 
    }
   h2{
     padding-bottom: 1em;
-    color: #fafcff ;
 }
 
 
@@ -71,6 +82,7 @@
   width: 75vw;
   border-radius: 0.7rem;
   margin: 0 3rem;
+  opacity: 0;
 }
 
 .country__img {
