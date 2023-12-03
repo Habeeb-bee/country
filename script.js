@@ -3,11 +3,10 @@
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
-alert('hello world')
-console.log('jdjsdjh');
 
 
 
+ 
  const renderCountry = function (data) {
 
     const languages =Object.values(data.languages);
@@ -27,7 +26,12 @@ console.log('jdjsdjh');
     countriesContainer.insertAdjacentHTML('beforeend', html);
     countriesContainer.style.opacity=1;
  
- }
+ };
+ const renderError = function (msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg)
+   countriesContainer.style.opacity = 1;
+  };
+
   //promise
  
   const getCountry = function(country){
@@ -36,9 +40,15 @@ console.log('jdjsdjh');
        // To be able to read the data from the response body...
        // ...you need to call the json mtd
       return response.json();
+
       // to get the data you need another then mtd
-     }).then( (data) => renderCountry(data[0])
- ); 
+     }, 
+    ).then( (data) => renderCountry(data[0])
+ ).catch( function (err) {
+  renderError (`Something went wrong ${err.message}, try again`)
+ }
+  
+  ); 
   };
 
-  getCountry('nigeria')
+  getCountry('canadsa')
