@@ -51,4 +51,4 @@ const countriesContainer = document.querySelector('.countries');
   ); 
   };
 
-  getCountry('canadsa')
+  getCountry('canada')
