@@ -24,12 +24,13 @@ const countriesContainer = document.querySelector('.countries');
     </article>`;
  
     countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity=1;
+    countriesContainer.style.opacity = 1;
  
  };
  const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg)
    countriesContainer.style.opacity = 1;
+
   };
 
   //promise
@@ -37,6 +38,10 @@ const countriesContainer = document.querySelector('.countries');
   const getCountry = function(country){
      fetch(`https://restcountries.com/v3.1/name/${country}`).then(function(response) {
        console.log(response);
+
+       if(!response.ok){
+        throw new Error(`Country not found `)
+       }
        // To be able to read the data from the response body...
        // ...you need to call the json mtd
       return response.json();
