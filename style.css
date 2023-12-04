@@ -27,7 +27,7 @@
     text-align: center;
     padding-top: 15vh;
     /* background-color: #CBBF7A; */
-    background-image: linear-gradient(to right, #818f58, #bdd17fa8),url(/country-image.jpg);
+    background-image: linear-gradient(to right, #818f58, #bdd17fa8),url(./country-image.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     font-family: myFont;
