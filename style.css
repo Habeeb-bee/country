@@ -1,6 +1,6 @@
 @font-face {
   font-family: myFont;
-  src: url(/Adventure.otf);
+  src: url(./fonts/Adventure.otf);
 }
 
 * {
@@ -26,8 +26,7 @@
     height: 80vh;
     text-align: center;
     padding-top: 15vh;
-    /* background-color: #CBBF7A; */
-    background-image: linear-gradient(to right, #818f58, #bdd17fa8),url(./country-image.jpg);
+    background-image: linear-gradient(to right, #818f58, #bdd17fa8),url(./img/country-image.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     font-family: myFont;
@@ -82,7 +81,6 @@
   width: 75vw;
   border-radius: 0.7rem;
   margin: 0 3rem;
-  opacity: 0;
 }
 
 .country__img {
