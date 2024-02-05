@@ -2,6 +2,9 @@
 
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
+const submit = document.querySelector('.btn-search');
+
+
 
 
 
@@ -17,9 +20,9 @@ const countriesContainer = document.querySelector('.countries');
       <div class="country__data">
         <h3 class="country__name">${data.name.common}</h3>
         <h4 class="country__region">${data.region}</h4>
-        <p class="country__row"><span>👫</span>${(data.population / 1000000).toFixed(1)}millon</p>
-        <p class="country__row"><span>🗣️</span>${languages}</p>
-        <p class="country__row"><span>💰</span>${ currencies}</p>
+        <p class="country__row"><span>👫:</span>${(data.population / 1000000).toFixed(1)}millon</p>
+        <p class="country__row"><span>🗣️:</span>${languages}</p>
+        <p class="country__row"><span>💰:</span>${ currencies}</p>
       </div>
     </article>`;
  
@@ -35,25 +38,34 @@ const countriesContainer = document.querySelector('.countries');
 
   //promise
  
-  const getCountry = function(country){
-     fetch(`https://restcountries.com/v3.1/name/${country}`).then(function(response) {
-       console.log(response);
 
-       if(!response.ok){
-        throw new Error(`Country not found `)
-       }
-       // To be able to read the data from the response body...
-       // ...you need to call the json mtd
-      return response.json();
+  const getCountry = async function (country) {
 
-      // to get the data you need another then mtd
-     }, 
-    ).then( (data) => renderCountry(data[0])
- ).catch( function (err) {
-  renderError (`Something went wrong ${err.message}, try again`)
- }
+    try {const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
   
-  ); 
-  };
-
-  getCountry('canada')
+    if (!res.ok) {
+      throw new Error('country not found')
+    }
+    const data = await res.json();
+    console.log(data);
+    renderCountry(data[0]);
+    console.log(res);}
+    catch (err) {
+      console.error(err);
+      renderError(`Something went wrong ${err.message}`)
+    }
+  }
+  
+  
+    
+  
+  
+  
+    submit.addEventListener('click', function(e) {
+      console.log('clicked');
+     
+      let countryValue = document.getElementsByTagName("input")[0];
+      const conVal= countryValue.value
+      getCountry(conVal)
+      
+    })
