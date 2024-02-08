@@ -1,10 +1,8 @@
 'use strict';
 
-const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 const submit = document.querySelector('.btn-search');
-
-
+const countryValue = document.getElementsByTagName("input")[0];
 
 
 
@@ -16,7 +14,7 @@ const submit = document.querySelector('.btn-search');
     const currencies =Object.values(data.currencies)[0].name;
     
     const html = `<article class="country">
-    <button class="close-book">&times;</button>
+    <button class="close-btn">&times;</button>
       <img class="country__img" src="${data.flags.png}" />
       <div class="country__data">
         <h3 class="country__name">${data.name.common}</h3>
@@ -28,7 +26,6 @@ const submit = document.querySelector('.btn-search');
     </article>`;
  
     countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity = 1;
  
  };
  const renderError = function (msg) {
@@ -48,9 +45,7 @@ const submit = document.querySelector('.btn-search');
       throw new Error('country not found')
     }
     const data = await res.json();
-    console.log(data);
-    renderCountry(data[0]);
-    console.log(res);}
+    renderCountry(data[0]);}
     catch (err) {
       console.error(err);
       renderError(`Something went wrong ${err.message}`)
@@ -63,14 +58,36 @@ const submit = document.querySelector('.btn-search');
   
   
     submit.addEventListener('click', function(e) {
-      console.log('clicked');
-     
-      let countryValue = document.getElementsByTagName("input")[0];
-      const conVal= countryValue.value
-      getCountry(conVal)
-      
+      getCountry(countryValue.value)
+
+        // clear inputs //
+      countryValue.value = '';
     })
 
+
+    // close country display ///
+
+    const unOpen = document.querySelector('.close-btn');
+
+    const close = function () {
+      console.log('click');
+      countriesContainer.classList.add('hidden') 
+
+  }
+ 
+  
+
+
+  
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !countriesContainer.classList.contains('hidden')) {
+      close();
+  }
+  
+})
+
+
+    
 
 
 // 'use strict';
@@ -91,7 +108,7 @@ const submit = document.querySelector('.btn-search');
 //     const currencies =Object.values(data.currencies)[0].name;
     
 //     const html = `<article class="country">
-//     <!-- <button class="close-book">&times;</button>
+//     <!-- <button class="close-btn">&times;</button>
 //       <img class="country__img" src="${data.flags.png}" />
 //       <div class="country__data">
 //         <h3 class="country__name">${data.name.common}</h3>

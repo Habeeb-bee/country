@@ -108,8 +108,10 @@ body{
     }
 
 
-
-.close-book {
+.hidden{
+  display: none;
+}
+.close-btn {
   position: absolute;
   right: .7rem;
   font-size: 2rem;
