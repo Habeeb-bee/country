@@ -3,6 +3,8 @@
 const countriesContainer = document.querySelector('.countries');
 const submit = document.querySelector('.btn-search');
 const countryValue = document.getElementsByTagName("input")[0];
+const search = document.querySelector('.searchbar')
+const overLay = document.querySelector('.overlay');
 
 
 
@@ -14,7 +16,6 @@ const countryValue = document.getElementsByTagName("input")[0];
     const currencies =Object.values(data.currencies)[0].name;
     
     const html = `<article class="country">
-    <button class="close-btn">&times;</button>
       <img class="country__img" src="${data.flags.png}" />
       <div class="country__data">
         <h3 class="country__name">${data.name.common}</h3>
@@ -56,35 +57,47 @@ const countryValue = document.getElementsByTagName("input")[0];
     
   
   
-  
+  //Displaying the country 
     submit.addEventListener('click', function(e) {
       getCountry(countryValue.value)
 
-        // clear inputs //
+    // clear inputs
       countryValue.value = '';
+      overLay.classList.remove('hidden')
     })
 
 
-    // close country display ///
+  // close country display
 
     const unOpen = document.querySelector('.close-btn');
+    const close = function () {countriesContainer.classList.add('hidden')}
 
-    const close = function () {
-      console.log('click');
-      countriesContainer.classList.add('hidden') 
+   overLay.addEventListener('click', () => {
+    overLay.classList.add('hidden');
+    close();
+  })
 
-  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !countriesContainer.classList.contains('hidden')) {
+        close();
+        overLay.classList.add('hidden')
+    }
+    
+  })
  
+
+//Reloading app
+  search.addEventListener('click', function (e) {
+   
+   if (countriesContainer.classList.contains('hidden')) {
+      location.reload(true)
+   }
+  })
   
 
 
   
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !countriesContainer.classList.contains('hidden')) {
-      close();
-  }
-  
-})
+
 
 
     
