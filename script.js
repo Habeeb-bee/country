@@ -30,8 +30,9 @@ const overLay = document.querySelector('.overlay');
  
  };
  const renderError = function (msg) {
-  countriesContainer.insertAdjacentText('beforeend', msg)
-   countriesContainer.style.opacity = 1;
+  overLay.classList.add('hidden');
+  alert(msg)
+   
 
   };
 
@@ -43,7 +44,7 @@ const overLay = document.querySelector('.overlay');
     try {const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
   
     if (!res.ok) {
-      throw new Error('country not found')
+      throw new Error('country not found');
     }
     const data = await res.json();
     renderCountry(data[0]);}

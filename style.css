@@ -101,7 +101,6 @@ body{
       box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
       font-size: 1.8rem;
       border-radius: 0.7rem; 
-      position: relative;
       text-align:start;
       height:fit-content;
       overflow:hidden;
@@ -115,11 +114,18 @@ body{
 .hidden{
   display: none;
 }
+
+.index{
+  z-index:5000;
+  color:#fff;
+}
+
 .close-btn {
   position: absolute;
-  right: .7rem;
-  font-size: 2rem;
-  color: #333;
+  top: 2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #fff;
   cursor: pointer;
   border: none;
   background: none;
