@@ -67,6 +67,16 @@ const overLay = document.querySelector('.overlay');
       overLay.classList.remove('hidden')
     })
 
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !countriesContainer.classList.contains('hidden')) {
+        getCountry(countryValue.value);
+        countryValue.value = '';
+        overLay.classList.remove('hidden')
+
+      }
+      
+    })
+
 
   // close country display
 
